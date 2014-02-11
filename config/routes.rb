@@ -1,4 +1,5 @@
 Aquidesacargas::Application.routes.draw do
+  devise_for :users
    root 'paginas_estaticas#bienvenido'
   get "paginas_estaticas/bienvenido"
   # The priority is based upon order of creation: first created -> highest priority.
