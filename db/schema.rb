@@ -11,7 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140211190616) do
+ActiveRecord::Schema.define(version: 20140212014131) do
+
+  create_table "categories", force: true do |t|
+    t.string   "titulo"
+    t.text     "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "resources", force: true do |t|
+    t.integer  "subcategory_id"
+    t.string   "titulo"
+    t.text     "descripcion"
+    t.integer  "año_produccion"
+    t.date     "fecha_subida"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subcategories", force: true do |t|
+    t.string   "category_id"
+    t.string   "titulo"
+    t.text     "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "urls", force: true do |t|
+    t.string   "resource_id"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
